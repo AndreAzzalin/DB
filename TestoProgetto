@@ -1,0 +1,56 @@
+Corsi Basi dati A e B aa 2015/2016  - LABORATORIO
+ESERCIZIO di Progettazione e realizzazione di una base dati
+ 
+Schema guida:
+
+1.   Progettazione concettuale
+
+1.1.  Requisiti iniziali
+1.2.  Glossario dei termini
+1.3.  Requisiti rivisti
+1.4.  Requisiti strutturati in gruppi di frasi omogenee
+1.5.  Analisi di coerenza dei requisiti ristrutturati rispetto al glossario
+1.6.  Schema E-R + regole aziendali
+1.7.  Autovalutazione dello schema E-R (+ buxsiness rules):
+1.7.1. Correttezza: controllare se i costrutti sono usati propriamente. Inoltre nella stesura dello schema E-R non bisogna considerare come verrà tradotto in relazionale (evitate errori come: omettere gli identificatori delle entità, aggiungere identificatori alle associazioni, aggiungere alle associazioni gli identificatori delle entità coinvolte, non indicare il tipo di generalizzazione, dare lo stesso nome a due entità o associazioni, riportare come business rule un’informazione che può essere rappresentata nell’E-R, usare un identificatore esterno basato su associazioni non (1,1) o un identificatore basato su attributi opzionali o multivalore)
+1.7.2. Completezza: rileggere i requisiti iniziali e considerare se ogni informazione rilevante è stata rappresentata nelle entità, associazioni, attributi, identificatori, cardinalità dell’E-R o nelle business rules. Verificare la coerenza degli identificatori delle entità e delle sottoentità gerarchiche con i requisiti riscritti.
+1.7.3. Leggibilità: L’E-R è intuitivo? I nomi dati alle entità/associazioni sono facilmente comprensibili? È chiaro cosa rappresentano?
+1.7.4. Minimalità: Sono presenti ridondanze indesiderate? È possibile rappresentare le stesse informazioni in modo più semplice?
+
+2.   Progettazione logica
+
+2.1.  Tavola dei volumi (motivare le scelte effettuate)
+2.2. Tavola delle operazioni (basandosi anche sui requisiti includere le operazioni piu’ rilevanti e motivare le scelte effettuate)
+2.3.  Ristrutturazione dello schema E-R
+2.3.1.     Analisi delle ridondanze
+Per ogni ridondanza:
+per ogni operazione significativa su cui la presenza/assenza della ridondanza può avere effetto:
+●	Schema di operazione in presenza e in assenza di ridondanza
+●	Tavola degli accessi in presenza e in assenza di ridondanza
+●	Confronto in spazio e tempo tra presenza e assenza di ridondanza
+●	Scelta se introdurre o non introdurre la ridondanza con motivazione
+
+2.3.2.	Eliminazione delle generalizzazioni (motivare le scelte effettuate)
+2.3.3.	Eventuale partizionamento/accorpamento di entità e associazioni
+(motivare le scelte effettuate)
+2.3.4.  Eventuale scelta degli identificatori principali (motivare le scelte effettuate)
+
+2.4.  Schema E-R ristrutturato + regole aziendali
+2.5.  Schema relazionale (indicare anche i vincoli di integrità referenziale)
+
+3.  DDL di creazione del database
+4.  DML di popolamento di tutte le tabelle del database (se popolate il database con dati verosimili potreste rendervi conto di errori commessi nella fase di progettazione concettuale e di cui avreste dovuto rendervi conto prima)
+5. Qualche operazione di cancellazione e modifica per verificare i vincoli ed effetti causati da  operazioni su chiavi esterne.
+ 
+ 
+Requisiti iniziali
+ 
+Si vuole realizzare la base di dati per la gestione di una piattaforma in cui gli utenti possono caricare, salvare e gestire immagini (si veda il file foto.pdf), organizzandole in  contenitori dette bacheche (si veda il file board.pdf). 
+Le immagini possono essere di proprietà dell’utente o scaricate da pagine web.
+I contenuti che vengono manipolati dagli utenti possono essere sfogliati nella pagina principale (si veda il file utente.pdf che mostra un esempio di pagina principale associata ad un utente). Gli utenti possono quindi salvare con  "pin" (puntine) le immagini ad una delle loro tavole.
+Nella piattaforma le foto sono anche organizzate in categorie (topic, si veda il file topic.pdf) che forniscono un sistema di navigazione articolato in modo da  aiutare gli utenti a condividere interessi.
+Per ogni topic vengono segnalati topic simili: 2 topic si definiscono simili  se e solo se almeno il 20% degli utenti possiede immagini di entrambi  topic in una delle proprie bacheche.
+Quando un utente disattiva il proprio profilo vengono cancellati tutti i pannelli da lui creati e le foto di cui e’ proprietario.
+
+Nota L’esercizio e’ ispirato alla piattaforma  https://it.pinterest.com/ a cui gli studenti possono fare riferimento per la revisione dei requisiti.
+
