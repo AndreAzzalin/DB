@@ -1,0 +1,5 @@
+FOTO(id_foto, bacheca, origine, descrizione, topic, percentuale)
+
+BACHECA(id_bacheca, proprietario, titolo, follower, nome_foto)
+
+UTENTE(id_utente, pin, like, follower_bacheca, follower_utenti, following_bacheche, following_utenti)
