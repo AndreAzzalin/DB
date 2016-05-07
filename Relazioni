@@ -1,5 +1,50 @@
+ /**
+ * Schema di relazioni che implementa una Base di dati adatta ad ospitare informazioni da gestire 
+ * nei modi indicati dalla traccia del progetto di Laboratorio del corso di Basi di Dati 2015/2016.
+ * @authors  Mangusta, Cesare
+ */
+ 
 FOTO(id_foto, bacheca, origine, descrizione, topic, percentuale)
 
 BACHECA(id_bacheca, proprietario, titolo, follower, nome_foto)
 
-UTENTE(id_utente, pin, like, follower_bacheca, follower_utenti, following_bacheche, following_utenti)
+UTENTE(id_utente, pin, like, follower_bacheca, follower_utenti)
+
+ /**
+ * @Development remark
+ * La scelta delle chiavi primarie è stata fatta tenendo in considerazione
+ * il bisogno di voler identificare (id) in maniera univoca ciascuna delle entità.
+ */
+Chiavi primarie:
+  FOTO: id_foto
+  BACHECA: id_bacheca
+  UTENTE: id_utente
+  
+ /**
+ * @Development remark
+ * I vincoli d'integrità referenziale riflettono i collegamenti concettuali e non
+ * che vogliamo ci siano all'interno dello schema di relazioni.
+ *  In particolare, nelle relazioni:
+ */
+Vincoli d'integrità: 
+  FOTO(bacheca) istanzia BACHECA(id_bacheca)              // Ciascuna FOTO deve indicare a quale BACHECA appartiene
+  BACHECA(proprietario) istanzia UTENTE(id_utente)        // Ciascuna BACHECA deve indicare a quale UTENTE appartiene
+  @questa forse è inutile???
+  BACHECA(nome_foto) istanzia FOTO(id_foto)               // Ciascuna BACHECA deve indicare quale FOTO ha? Lo sappiamo già con il primo vincolo
+  
+  UTENTE (pin) istanzia FOTO(id_foto)                     // Ciascun  UTENTE deve poter elencare quali e quante FOTO ha "pinnato"
+  UTENTE (follower_bacheca) istanzia BACHECA(id_bacheca)  // Ciascun  UTENTE deve poter elencare quali e quante BACHECA (bacheche) segue
+  UTENTE (follower_utenti) istanzia UTENTE(id_utente)     // Ciascun  UTENTE deve poter elencare quali e quanti UTENTE (utenti) segue
+  
+   /**
+ * @Development observation
+ * La base di dati siffatta è completa e adatta al suo scopo, ci chiediamo però se è migliorabile, 
+ * ad esempio aggiungendo degli attributi (following_bacheche, following_utenti) alla relazione UTENTE,
+ * allo scopo di abbreviare il tempo di recupero delle suddette informazioni dalla base di dati 
+ * durante la fase delle interrogazioni alla Base di Dati.
+ * Seguono alcune riflessioni tenendo in considerazione eventuali migliorie in fase di progettazione 
+ *  In particolare, nelle relazioni:
+ */
+  
+
+  
