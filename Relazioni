@@ -54,6 +54,7 @@ Vincoli d'integrità:
   REGOLE DI BUSINESS:
    UTENTE può seguire seguire una BACHECA o un UTENTE una sola volta (non ci devono essere dublicati nell'attributo follower/ing)
    stesso discorso per pin e like 
+   UTENTE non può seguire se stesso
  
   
 
